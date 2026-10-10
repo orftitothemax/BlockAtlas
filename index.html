@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#14141f" />
+  <meta name="description" content="BlockAtlas — view Minecraft builds in 3D, swap blocks, build layer by layer." />
+  <title>BlockAtlas — Minecraft Build Viewer</title>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>BlockAtlas</h1>
+      <div id="file-controls">
+        <label class="btn" for="file-input">Open structure file</label>
+        <input type="file" id="file-input" accept=".nbt,.schematic,.schem,.mcstructure" hidden />
+        <span id="file-name">No file loaded</span>
+      </div>
+    </header>
+
+    <div id="drop-zone">
+      <p>Drop a <code>.nbt</code>, <code>.schematic</code> / <code>.schem</code>, or <code>.mcstructure</code> file here</p>
+      <p class="hint">or use the button above — try <code>samples/test-hut.schematic</code> first</p>
+    </div>
+
+    <div id="main-row">
+  <canvas id="scene"></canvas>
+  <aside id="inventory">
+    <h2>Inventory</h2>
+    <ul id="inventory-list"><li class="muted">Load a file to see its blocks.</li></ul>
+  </aside>
+</div>
+
+
+    <footer>
+      <div class="layer-ctl"><span>Layer</span>
+        <button id="layer-down" class="step-btn" disabled>−</button>
+        <input type="range" id="layer-slider" min="0" max="0" value="0" disabled />
+        <button id="layer-up" class="step-btn" disabled>+</button>
+        <span id="layer-label"></span>
+      </div>
+      <span id="stats"></span>
+      <span id="status"></span>
+    </footer>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
